@@ -10,7 +10,7 @@ let rollbar = new Rollbar({
 
 const students = []
 const app = express()
-
+app.use(express.json())
 
 
 app.get('/', (req, res) => {
@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/api/student', (req, res) => {
-    const {name} = req.body
+    let {name} = req.body
     name = name.trim()
 
     students.push(name)
